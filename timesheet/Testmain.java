@@ -21,8 +21,16 @@ public class Testmain {
 			String username=sc.nextLine();
 			System.out.println("Enter Password:");
 			String password=sc.nextLine();
+			if(username.matches("[a-z0-9.]+[@][a-z]+[.][]a-z]+") && password.matches("[A-Za-z0-9@#]{8,10}"))
+			{
+			System.out.println("valid username:");
 			User user=new User(firstname,lastname,username,password);
 			userdao.insertuser(user);
+			}
+			else
+			{
+				System.out.println("invalid username or password");
+			}
 		case 2:
 			userdao=new UserDAO();
 			System.out.println("User Login");
